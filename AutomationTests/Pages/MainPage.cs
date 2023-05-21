@@ -25,7 +25,7 @@ namespace AutomationTests.Pages
 
         public async Task Login()
         {
-            await LoginInput.FillAsync("artur-test");
+            await LoginInput.FillAsync("test");
         }
 
     }
