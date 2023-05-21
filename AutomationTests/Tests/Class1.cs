@@ -8,7 +8,7 @@ namespace AutomationTests.Tests
         public async Task Test()
         {
             MainPage mainPage = new(Context);
-            var products = await mainPage.GoTo().Result.GoToProductPage();
+            await mainPage.GoTo().Result.Login();
 
         }
     }
