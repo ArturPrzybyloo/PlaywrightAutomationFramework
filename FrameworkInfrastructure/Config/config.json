@@ -1,0 +1,10 @@
+{
+  "BrowserConfig": {
+    "BrowserType": "Chromium",
+    "HeadlessMode": false,
+    "Channel":  "chrome"
+  },
+  "AppConfig": {
+    "BaseUrl": "http://localhost:8000/"
+  }
+}
