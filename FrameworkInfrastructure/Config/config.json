@@ -5,6 +5,8 @@
     "Channel":  "chrome"
   },
   "AppConfig": {
-    "BaseUrl": "https://parabank.parasoft.com/parabank/index.htm"
+    "BaseUrl": "https://parabank.parasoft.com/parabank/index.htm",
+    "UserName": "test-pw",
+    "Password": "password12"
   }
 }
