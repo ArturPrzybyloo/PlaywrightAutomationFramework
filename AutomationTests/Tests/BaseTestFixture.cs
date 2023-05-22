@@ -1,5 +1,6 @@
 ﻿using FrameworkInfrastructure.Config;
 using FrameworkInfrastructure.Driver;
+using NUnit.Framework.Interfaces;
 
 namespace AutomationTests.Tests
 {
@@ -35,13 +36,17 @@ namespace AutomationTests.Tests
         [TearDown]
         public async Task TearDown()
         {
-            if (Context != null) 
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                await Context.Tracing.StopAsync(new TracingStopOptions()
+                if (Context != null)
                 {
-                    Path = "traces/$trace-{TestContext.CurrentContext.Test.Name}.zip"
-                });
+                    await Context.Tracing.StopAsync(new TracingStopOptions()
+                    {
+                        Path = $"traces/trace-{TestContext.CurrentContext.Test.Name}.zip"
+                    });
+                }
             }
+
             if (Browser != null)
             {
                 await Browser.CloseAsync();
