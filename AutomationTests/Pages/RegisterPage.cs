@@ -2,6 +2,6 @@
 {
     public class RegisterPage: BasePage
     {
-        public RegisterPage(IBrowserContext context) : base(context) { }
+        public RegisterPage(IPage page) : base(page) { }
     }
 }

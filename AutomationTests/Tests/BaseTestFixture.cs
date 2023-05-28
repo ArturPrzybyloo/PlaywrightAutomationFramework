@@ -9,6 +9,7 @@ namespace AutomationTests.Tests
     {
         protected IBrowser Browser;
         protected IBrowserContext Context;
+        protected IPage Page;
 
         [SetUp]
         public async Task SetUp()
@@ -31,6 +32,8 @@ namespace AutomationTests.Tests
                 Screenshots = true,
                 Snapshots = true,
             });
+
+            Page = await Context.NewPageAsync();
         }
 
         [TearDown]
