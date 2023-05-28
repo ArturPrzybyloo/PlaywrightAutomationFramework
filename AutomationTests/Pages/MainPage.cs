@@ -4,13 +4,13 @@ namespace AutomationTests.Pages
 {
     public class MainPage : BasePage
     {
-        private IBrowserContext Context;
+        private IPage Page;
         private ConfigReader Reader;
         private Config Config;
 
-        public MainPage(IBrowserContext context) : base(context)
+        public MainPage(IPage page) : base(page)
         {
-            Context = context;
+            Page = page;
             Reader = new ConfigReader();
             Config = Reader.GetConfig();
         }
@@ -34,14 +34,14 @@ namespace AutomationTests.Pages
             await PasswordInput.FillAsync(Config.AppConfig.Password);
             await LoginButton.ClickAsync();
 
-            return new OverviewPage(Context);
+            return new OverviewPage(Page);
         }
 
         public async Task<RegisterPage> GoToRegisterPage()
         {
             await RegisterLink.ClickAsync();
 
-            return new RegisterPage(Context);
+            return new RegisterPage(Page);
         }
 
     }

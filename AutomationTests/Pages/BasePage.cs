@@ -4,9 +4,9 @@
     {
         public IPage Page;
 
-        public BasePage(IBrowserContext context) 
+        public BasePage(IPage page) 
         {
-            Page = context.NewPageAsync().Result;
+            Page = page;
         }
     }
 }
