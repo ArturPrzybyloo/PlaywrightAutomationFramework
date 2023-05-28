@@ -9,7 +9,7 @@
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Phone {  get; set; }
-        public string SSN { get; set; }
+        public int SSN { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
     }
