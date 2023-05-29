@@ -10,6 +10,7 @@ namespace AutomationTests.Tests
         protected IBrowser Browser;
         protected IBrowserContext Context;
         protected IPage Page;
+        protected IAPIRequestContext Request;
 
         [SetUp]
         public async Task SetUp()
@@ -34,6 +35,11 @@ namespace AutomationTests.Tests
             });
 
             Page = await Context.NewPageAsync();
+            Request = await builder._playwright.APIRequest.NewContextAsync(new APIRequestNewContextOptions
+            {
+                BaseURL = "http://parabank.parasoft.com/parabank/services/bank/"
+            });
+
         }
 
         [TearDown]

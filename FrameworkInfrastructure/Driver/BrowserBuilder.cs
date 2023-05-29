@@ -4,6 +4,7 @@
     {
         private string _browserType;
         private BrowserTypeLaunchOptions _launchOptions;
+        public IPlaywright _playwright;
 
         public BrowserBuilder()
         {
@@ -25,16 +26,16 @@
 
         public async Task<IBrowser> Build()
         {
-            var playwright = await Playwright.CreateAsync();
+            _playwright = await Playwright.CreateAsync();
             IBrowserType browserType;
 
             switch (_browserType.ToLower())
             {
                 case "chromium":
-                    browserType = playwright.Chromium;
+                    browserType = _playwright.Chromium;
                     break;
                 case "firefox":
-                    browserType = playwright.Firefox;
+                    browserType = _playwright.Firefox;
                     break;
                 default:
                     throw new ArgumentException($"Unsupported browser type: {_browserType}");
