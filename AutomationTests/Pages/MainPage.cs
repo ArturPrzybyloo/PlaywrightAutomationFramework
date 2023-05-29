@@ -1,4 +1,5 @@
 ﻿using FrameworkInfrastructure.Config;
+using FrameworkInfrastructure.Models;
 
 namespace AutomationTests.Pages
 {
@@ -32,6 +33,15 @@ namespace AutomationTests.Pages
         {
             await LoginInput.FillAsync(Config.AppConfig.UserName);
             await PasswordInput.FillAsync(Config.AppConfig.Password);
+            await LoginButton.ClickAsync();
+
+            return new OverviewPage(Page);
+        }
+
+        public async Task<OverviewPage> Login(User user)
+        {
+            await LoginInput.FillAsync(user.UserName);
+            await PasswordInput.FillAsync(user.Password);
             await LoginButton.ClickAsync();
 
             return new OverviewPage(Page);
