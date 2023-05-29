@@ -21,7 +21,6 @@ namespace FrameworkInfrastructure.Utils
                SSN = random.Next(1000, 9999),
                UserName = Faker.Internet.UserName(),
                Password = GenerateRandomPassword(12)
-
             };
         }
 

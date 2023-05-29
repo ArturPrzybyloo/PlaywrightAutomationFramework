@@ -1,4 +1,6 @@
-﻿namespace AutomationTests.Pages
+﻿using FrameworkInfrastructure.Models;
+
+namespace AutomationTests.Pages
 {
     public class OverviewPage : BasePage
     {
@@ -7,6 +9,7 @@
         // Locators
         private ILocator LogOutButton => Page.GetByText("Log Out");
         private ILocator TotalBalance => Page.Locator(".ng-binding");
+        private ILocator WelcomeMessage => Page.Locator("h1[class='title']");
 
         // Actions
         public async Task<OverviewPage> VerifyLogginIn()
@@ -21,6 +24,10 @@
             return await TotalBalance.InnerTextAsync();
         } 
 
-
+        public async Task VerifyRegiser(User user)
+        {
+            var welcomeMsg = await WelcomeMessage.InnerTextAsync();
+            welcomeMsg.Should().Contain(user.UserName);
+        }
     }
 }
