@@ -1,4 +1,7 @@
-﻿namespace AutomationTests.Pages
+﻿using FrameworkInfrastructure.Models;
+using FrameworkInfrastructure.Utils;
+
+namespace AutomationTests.Pages
 {
     public class BasePage
     {
